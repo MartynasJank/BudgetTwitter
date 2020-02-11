@@ -16,5 +16,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
-Route::get('/feed', 'PostsController@index');
-Route::post('/feed', 'PostsController@store');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/feed', 'PostsController@index');
+    Route::post('/feed', 'PostsController@store');
+    Route::get('/feed/{post}', 'PostsController@show');
+});
+
