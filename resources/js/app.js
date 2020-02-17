@@ -27,6 +27,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+$('.like').on('click', function(){
+
+});
+
 const app = new Vue({
     el: '#app',
 });

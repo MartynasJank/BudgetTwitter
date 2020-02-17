@@ -24,7 +24,7 @@
                 <img class="h-5" src="/images/liked.png">
             </button> -->
             <button>
-                <img class="h-5" src="/images/comment.png">
+                <img class="h-5 mr-2 inline" src="/images/comment.png">{{ count($comments) }}
             </button>
         </div>
         <span class="text-xs block text-left text-purple-300 text-right">{{ $post->created_at->diffForHumans() }}</span>
@@ -67,9 +67,9 @@
             <!-- <button>
                 <img class="h-5" src="/images/liked.png">
             </button> -->
-            <!-- <button>
+            <button>
                 <img class="h-5" src="/images/comment.png">
-            </button> -->
+            </button>
         </div>
         <span class="text-xs block text-left text-purple-300 text-right">{{ $post->created_at->diffForHumans() }}</span>
     </div>

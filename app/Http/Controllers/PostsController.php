@@ -10,8 +10,11 @@ class PostsController extends Controller
 {
     public function index(){
         $posts = Post::with('User')->where('post_id', null)->orderBy('created_at', 'DESC')->take(10)->get();
-
-        return view('feed', compact('posts'));
+        foreach($posts as $post){
+            $comments[$post->id] = Post::where('post_id', $post->id)->count();
+        }
+        // dd($comments);
+        return view('feed', compact('posts', 'comments'));
     }
 
     public function store(Request $request){

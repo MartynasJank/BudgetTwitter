@@ -24,15 +24,15 @@
         </div>
         <a href="{{ $post->path() }}" class="block mb-3 border-b border-b-2 border-purple-200 pb-5">{{ $post->body }}</a>
         <div class="flex">
-            <button>
-                <img class="h-5 mr-2" src="/images/like.png">
-            </button>
-            <!-- <button>
+            <a class="like mr-4">
+                <img class="h-5 mr-2 inline" src="/images/like.png"><span>0</span>
+            </a>
+            <!-- <a>
                 <img class="h-5" src="/images/liked.png">
-            </button> -->
-            <button>
-                <img class="h-5" src="/images/comment.png">
-            </button>
+            </a> -->
+            <a>
+                <img class="h-5 mr-2 inline" src="/images/comment.png"><span>{{ $comments[$post->id] }}</span>
+            </a>
         </div>
         <span class="text-xs block text-left text-purple-300 text-right">{{ $post->created_at->diffForHumans() }}</span>
     </div>
