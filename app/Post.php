@@ -26,6 +26,10 @@ class Post extends Model
         return $this->likes()->where('post_id', $this->id)->get();
     }
 
+    public function commentsCount(){
+      return Post::where('post_id', $this->id)->count();
+    }
+
     public function DidAuthUserLikedPost(){
       $like = $this->likes()->where('user_id',  Auth::user()->id)->get();
       if ($like->isEmpty()){

@@ -13,7 +13,6 @@ class PostsController extends Controller
         foreach($posts as $post){
             $comments[$post->id] = Post::where('post_id', $post->id)->count();
         }
-        // dd($comments);
         return view('feed', compact('posts', 'comments'));
     }
 
@@ -36,7 +35,7 @@ class PostsController extends Controller
     }
 
     public function show(Post $post){
-        $comments = $post->where('post_id', $post->id)->orderBy('created_at', 'DESC')->get();
+        $comments = $post->with('User')->where('post_id', $post->id)->orderBy('created_at', 'DESC')->get();
         return view('show', compact('post', 'comments'));
     }
 
